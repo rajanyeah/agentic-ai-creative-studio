@@ -166,8 +166,8 @@ def main():
         results = studio.run(topic, save_output=True)
         studio.display_summary(results)
         
-        print("\n🎉 Thank you for using Multi-Agent Creative Studio!")
-        print("   Powered by Google Gemini 2.5 Flash with A2A Communication\n")
+        print("\n🎉 Thank you for using Agentic AI Creative Studio!")
+        print("   Powered by Google Gemini 3.6 Flash with A2A Communication\n")
         
     except Exception as e:
         print(f"\n❌ Error occurred: {str(e)}")
