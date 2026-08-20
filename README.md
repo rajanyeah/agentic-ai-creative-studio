@@ -120,7 +120,7 @@ The system generates a markdown file with the complete creative process and fina
 ## Project Structure
 
 ```
-multi-agent-creative-studio/
+agentic-ai-creative-studio/
 │
 ├── main.py                 # Main orchestration script
 ├── app.py                  # Streamlit web UI
