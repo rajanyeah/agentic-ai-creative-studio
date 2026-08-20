@@ -1,126 +1,73 @@
+> **Autonomous Hacks 26 — Online Agentic Hackathon Submission**
+>
+> **36-Hour Online Hackathon**
+> 20 December, 8:00 AM → 21 December, 12:00 PM
+>
+> **Problem Statement 6:** Multi-Agent Creative Studio
+> Built using Agent-to-Agent (A2A) communication and iterative refinement.
+>
+> Hackathon Website: https://autonomoushacks.co.in/
 
-> 🚀 **Autonomous Hacks 26 | Online Agentic Hackathon Submission**  
->  
-> ⏱️ **36-Hour Online Hackathon**  
-> **20 December, 8:00 AM → 21 December, 12:00 PM**  
->  
-> 🧠 **Problem Statement 6:** *Multi-Agent Creative Studio*  
-> Built using Agent-to-Agent (A2A) communication and iterative refinement.  
->  
-> 🌐 Hackathon Website: https://autonomoushacks.co.in/
+# Multi-Agent Creative Studio
 
+A multi-agent system that uses Agent-to-Agent (A2A) communication and iterative refinement to generate, critique, refine, and present creative ideas. Built with Google Gemini 3.6 Flash.
 
-# Multi-Agent Creative Studio 🎨🤖
+Available with both a CLI and a web UI.
 
-A sophisticated multi-agent system that uses **Agent-to-Agent (A2A) communication** and **iterative refinement** to generate, critique, refine, and present creative ideas. Built with **Google Gemini 3.6 Flash**. 
-
-**Now available with both CLI and Web UI interfaces!**
-
-## 🌟 Features
+## Features
 
 ### Multi-Agent Architecture
+
 This project implements a complete creative workflow using four specialized AI agents:
 
-1. **💡 Idea Agent**: Generates 3 unique creative concepts based on any topic
-2. **🔍 Critic Agent**: Analyzes flaws, weaknesses, and opportunities in the ideas
-3. **✨ Refiner Agent**: Improves ideas based on the critic's feedback
-4. **📊 Presenter Agent**: Produces a final structured, professional presentation
+1. **Idea Agent** — Generates three unique creative concepts based on any topic
+2. **Critic Agent** — Analyzes flaws, weaknesses, and opportunities in the ideas
+3. **Refiner Agent** — Improves ideas based on the critic's feedback
+4. **Presenter Agent** — Produces a final structured, professional presentation
 
-### Why Agentic?
-- **Agent-to-Agent (A2A) Communication**: Agents pass data to each other, creating a seamless workflow
-- **Iterative Refinement**: Ideas are progressively improved through multiple stages
-- **Specialized Roles**: Each agent has a specific expertise and responsibility
-- **Autonomous Decision Making**: Agents process information and make decisions independently
+### Why Agentic
 
-## 🛠️ Technology Stack
+- **Agent-to-Agent (A2A) Communication** — Agents pass data to each other, creating a seamless workflow
+- **Iterative Refinement** — Ideas are progressively improved through multiple stages
+- **Specialized Roles** — Each agent has a specific expertise and responsibility
+- **Autonomous Decision Making** — Agents process information and make decisions independently
 
-- **Language**:  Python 3.10+
-- **AI Model**: Google Gemini 3.6 Flash (`gemini-3.6-flash`)
-- **Framework**: Google ADK (Agent Development Kit)
-- **Interfaces**: CLI and Web UI (Streamlit)
-- **Libraries**:  
-  - `google-genai` - Google's modern Generative AI SDK
-  - `python-dotenv` - Environment variable management
-  - `streamlit` - Interactive web interface
+## Technology Stack
 
-## 📋 Prerequisites
+- **Language:** Python 3.10+
+- **AI Model:** Google Gemini 3.6 Flash (`gemini-3.6-flash`)
+- **Framework:** Google ADK (Agent Development Kit)
+- **Interfaces:** CLI and Web UI (Streamlit)
+- **Libraries:**
+  - `google-genai` — Google's Generative AI SDK
+  - `python-dotenv` — Environment variable management
+  - `streamlit` — Interactive web interface
+
+## Prerequisites
 
 - Python 3.10 or higher
 - Google API Key (for Gemini API access)
 - pip (Python package manager)
 
-## 🚀 Installation
+## Installation
 
-1. **Clone the repository**:
+1. **Clone the repository:**
 ```bash
 git clone https://github.com/rajanyeah/agentic-ai-creative-studio.git
 cd agentic-ai-creative-studio
 ```
 
-2. **Install dependencies**:
+2. **Install dependencies:**
 ```bash
 pip install -r requirements.txt
 ```
 
-3. **Set up environment variables**:
+3. **Set up environment variables:**
 ```bash
 cp .env.example .env
 ```
 
-4. **Add your Google API Key** to the `.env` file:
-```
-GOOGLE_API_KEY=your_google_api_key_here
-```
-
-> 💡 **Get your API key**: Visit [Google AI Studio](https://makersuite.google.com/app/apikey) to obtain a free API key.
-
-## 💻 Usage
-
-### Web UI (Recommended)
-
-Launch the interactive web interface:
-```bash
-streamlit run app.py
-```
-
-The app opens automatically in your browser at `http://localhost:8501`. Features include:
-- 🎨 Interactive topic input
-- 📊 Real-time progress tracking
-- 📑 Tabbed results display
-- 💾 One-click download
-
-For detailed Web UI documentation, see **[README_UI.md](README_UI.md)**.
-
-### Command Line Interface (CLI)
-
-Run the creative studio with a default topic:
-```bash
-python main.py
-```
-
-Specify your own topic for creative idea generation: 
-```bash
-python main.py "Your creative topic here"
-```
-
-#### CLI Examples
-
-```bash
-# Example 1: Mobile app idea
-python main.py "A mobile app for learning languages through games"
-
-# Example 2: Business concept
-python main.py "An eco-friendly food delivery service"
-
-# Example 3: Product idea
-python main.py "Smart home device for elderly care"
-```
-
-> 💡 **Quick Start**: See **[QUICKSTART.md](QUICKSTART.md)** for a 5-minute setup guide. 
-
-## 📊 How It Works
-
-### Agent-to-Agent Communication Flow
+4. **Add your Google API key** to the `.env` file:
 
 ```
 ┌─────────────────┐
@@ -143,38 +90,34 @@ python main.py "Smart home device for elderly care"
 └─────────────────┘
 ```
 
+
 ### Workflow Steps
 
-1. **💡 Generation Phase**: 
-   - Idea Agent receives a topic
-   - Generates 3 unique creative concepts with titles, descriptions, and USPs
+1. **Generation Phase**
+   Idea Agent receives a topic and generates three unique creative concepts with titles, descriptions, and USPs.
 
-2. **🔍 Analysis Phase**:
-   - Critic Agent receives ideas from Idea Agent (A2A)
-   - Analyzes strengths, weaknesses, feasibility, market potential, and risks
+2. **Analysis Phase**
+   Critic Agent receives ideas from Idea Agent (A2A) and analyzes strengths, weaknesses, feasibility, market potential, and risks.
 
-3. **✨ Refinement Phase**:
-   - Refiner Agent receives critique from Critic Agent (A2A)
-   - Improves ideas by addressing weaknesses and enhancing strengths
+3. **Refinement Phase**
+   Refiner Agent receives critique from Critic Agent (A2A) and improves ideas by addressing weaknesses and enhancing strengths.
 
-4. **📊 Presentation Phase**:
-   - Presenter Agent receives refined ideas from Refiner Agent (A2A)
-   - Creates comprehensive presentation with executive summary, recommendations, and action items
-   - Saves output to a markdown file
+4. **Presentation Phase**
+   Presenter Agent receives refined ideas from Refiner Agent (A2A) and creates a comprehensive presentation with executive summary, recommendations, and action items, saving the output to a markdown file.
 
-## 📁 Output
+## Output
 
-The system generates a markdown file with the complete creative process and final recommendations: 
+The system generates a markdown file with the complete creative process and final recommendations.
 
-- **Filename format**: `creative_studio_output_YYYYMMDD_HHMMSS.md`
-- **Contents**:
+- **Filename format:** `creative_studio_output_YYYYMMDD_HHMMSS.md`
+- **Contents:**
   - Executive Summary
   - Creative Process Overview
   - Final Recommendations (Top 3 Ideas)
   - Comparison Analysis
   - Next Steps and Action Items
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 multi-agent-creative-studio/
@@ -199,7 +142,8 @@ multi-agent-creative-studio/
 └── test_ui.py            # UI tests
 ```
 
-## 🔧 Configuration
+
+## Configuration
 
 ### Model Selection
 
@@ -216,40 +160,40 @@ Each agent is modular and can be customized independently:
 - Adjust response formats
 - Add additional analysis criteria
 
-## 🎯 Use Cases
+## Use Cases
 
-- **Product Development**: Generate and refine product ideas
-- **Marketing Campaigns**: Create campaign concepts
-- **Business Strategy**:  Develop business ideas and strategies
-- **Content Creation**: Generate content themes and approaches
-- **Innovation Workshops**:  Facilitate brainstorming sessions
-- **Startup Ideas**: Validate and improve startup concepts
+- **Product Development** — Generate and refine product ideas
+- **Marketing Campaigns** — Create campaign concepts
+- **Business Strategy** — Develop business ideas and strategies
+- **Content Creation** — Generate content themes and approaches
+- **Innovation Workshops** — Facilitate brainstorming sessions
+- **Startup Ideas** — Validate and improve startup concepts
 
-## 📚 Documentation
+## Documentation
 
-- **[README_UI.md](README_UI.md)** - Complete Web UI guide with features and troubleshooting
-- **[QUICKSTART. md](QUICKSTART.md)** - Get started in 5 minutes
-- **[ARCHITECTURE. md](ARCHITECTURE.md)** - Technical architecture and A2A communication details
-- **[SAMPLE_OUTPUT.md](SAMPLE_OUTPUT.md)** - Example outputs and use cases
+- [README_UI.md](README_UI.md) — Complete Web UI guide with features and troubleshooting
+- [QUICKSTART.md](QUICKSTART.md) — Get started in five minutes
+- [ARCHITECTURE.md](ARCHITECTURE.md) — Technical architecture and A2A communication details
+- [SAMPLE_OUTPUT.md](SAMPLE_OUTPUT.md) — Example outputs and use cases
 
-## 🤝 Contributing
+## Contributing
 
-Contributions are welcome!  Please feel free to submit a Pull Request.
+Contributions are welcome. Please feel free to submit a pull request.
 
-## 📝 License
+## License
 
 This project is open source and available under the MIT License.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Built with Google Gemini 3.6 Flash
 - Powered by Google ADK (Agent Development Kit)
 - Inspired by modern agentic AI architectures
 
-## 📧 Contact
+## Contact
 
 For questions or feedback, please open an issue on GitHub.
 
 ---
 
-**Made with ❤️ by rajanya**
+**Built by Rajanya**
