@@ -325,43 +325,21 @@ def render_flow(stage_status):
 # Workflow execution
 # ----------------------------------------------------------------------------
 def run_creative_workflow(topic, api_key):
-    """Run the complete creative workflow"""
+    """Run the complete creative workflow via the LangGraph-managed studio pipeline"""
     stage_status = {"idea": "pending", "critique": "pending", "refine": "pending", "present": "pending"}
     flow_slot = st.empty()
 
     def paint():
         flow_slot.markdown(render_flow(stage_status), unsafe_allow_html=True)
 
+    def on_step(stage, status):
+        stage_status[stage] = status
+        paint()
+
     paint()
     try:
         studio = CreativeStudio(api_key, model_name="gemini-3.6-flash")
-
-        stage_status["idea"] = "running"; paint()
-        ideas_data = studio.idea_agent.generate_ideas(topic)
-        stage_status["idea"] = "complete"; paint()
-
-        stage_status["critique"] = "running"; paint()
-        critique_data = studio.critic_agent.analyze_ideas(ideas_data)
-        stage_status["critique"] = "complete"; paint()
-
-        stage_status["refine"] = "running"; paint()
-        refined_data = studio.refiner_agent.refine_ideas(critique_data)
-        stage_status["refine"] = "complete"; paint()
-
-        stage_status["present"] = "running"; paint()
-        presentation_data = studio.presenter_agent.create_presentation(refined_data)
-        stage_status["present"] = "complete"; paint()
-
-        results = {
-            "topic": topic,
-            "workflow": {
-                "step1_ideas": ideas_data,
-                "step2_critique": critique_data,
-                "step3_refined": refined_data,
-                "step4_presentation": presentation_data
-            },
-            "final_output": presentation_data
-        }
+        results = studio.run(topic, save_output=False, on_step=on_step)
         return results, None
 
     except Exception as e:
